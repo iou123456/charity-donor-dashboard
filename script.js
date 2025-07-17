@@ -58,16 +58,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 borderWidth: 0
             }]
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'right'
-                }
+        // In your chart initialization code, add these options:
+options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            position: 'top',
+        },
+    },
+    scales: {
+        x: {
+            grid: {
+                display: false,
             },
-            cutout: '70%'
+            ticks: {
+                maxRotation: 45,
+                minRotation: 45
+            }
+        },
+        y: {
+            beginAtZero: true,
+            grid: {
+                drawBorder: false
+            }
         }
+    }
+}
     });
 
     // Mobile menu toggle functionality
