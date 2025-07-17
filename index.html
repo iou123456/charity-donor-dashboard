@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Hands - Donor Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-hands-helping"></i> Helping Hands</h3>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-donate"></i> Donations</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Donors</a></li>
+                    <li><a href="#"><i class="fas fa-campaign"></i> Campaigns</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        <span class="user-name">Sarah Johnson</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="content">
+                <div class="page-header">
+                    <h2>Donor Dashboard</h2>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> New Campaign</button>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-cards">
+                    <div class="stat-card primary">
+                        <div class="stat-title">Total Donations</div>
+                        <div class="stat-value">$24,580</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12.5% from last month
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-donate"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-title">Active Donors</div>
+                        <div class="stat-value">1,248</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8.3% from last month
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-title">Pending Donations</div>
+                        <div class="stat-value">$3,420</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i> 2.1% from last month
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card danger">
+                        <div class="stat-title">Campaigns</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 3 new this month
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-campaign"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Donation Trends</div>
+                            <div class="chart-actions">
+                                <select>
+                                    <option>Last 7 Days</option>
+                                    <option>Last 30 Days</option>
+                                    <option selected>Last 90 Days</option>
+                                    <option>This Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="donationTrendsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Donation Sources</div>
+                            <div class="chart-actions">
+                                <select>
+                                    <option selected>This Month</option>
+                                    <option>Last Month</option>
+                                    <option>This Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="donationSourcesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Donations -->
+                <div class="recent-donations">
+                    <div class="donations-header">
+                        <div class="donations-title">Recent Donations</div>
+                        <button class="btn btn-outline"><i class="fas fa-download"></i> Export</button>
+                    </div>
+                    <table class="donations-table">
+                        <thead>
+                            <tr>
+                                <th>Donor</th>
+                                <th>Amount</th>
+                                <th>Campaign</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Donor">
+                                        <div>
+                                            <div class="donor-name">Michael Brown</div>
+                                            <div class="donor-email">michael@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="donation-amount">$250.00</td>
+                                <td>Education Fund</td>
+                                <td>Jun 12, 2023</td>
+                                <td><span class="donation-status status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Donor">
+                                        <div>
+                                            <div class="donor-name">Jennifer Lee</div>
+                                            <div class="donor-email">jennifer@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="donation-amount">$150.00</td>
+                                <td>Food Drive</td>
+                                <td>Jun 10, 2023</td>
+                                <td><span class="donation-status status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Donor">
+                                        <div>
+                                            <div class="donor-name">Robert Wilson</div>
+                                            <div class="donor-email">robert@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="donation-amount">$500.00</td>
+                                <td>Medical Relief</td>
+                                <td>Jun 8, 2023</td>
+                                <td><span class="donation-status status-pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Donor">
+                                        <div>
+                                            <div class="donor-name">Emily Davis</div>
+                                            <div class="donor-email">emily@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="donation-amount">$75.00</td>
+                                <td>Animal Shelter</td>
+                                <td>Jun 5, 2023</td>
+                                <td><span class="donation-status status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="donor-info">
+                                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Donor">
+                                        <div>
+                                            <div class="donor-name">David Miller</div>
+                                            <div class="donor-email">david@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="donation-amount">$1,000.00</td>
+                                <td>Disaster Relief</td>
+                                <td>Jun 3, 2023</td>
+                                <td><span class="donation-status status-failed">Failed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="view-more">
+                        <a href="#">View All Donations <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
